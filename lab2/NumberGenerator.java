@@ -6,10 +6,10 @@ public class NumberGenerator {
 		double random = Math.random();
 		int[] num = new int[100];
 		for(int i = 0; i < count; i++){
-			num[i] = count+(from-to)*(int)random;
+			num[i] = (int)(from+(from-to＋1)*random);
 			for(int j = 0; num[j]!=0; j++){
 				if(num[j] == num[i]){
-					i--;
+					num[i] = (int)(from+(from-to＋1)*random);
 					break;
 				}
 			}
