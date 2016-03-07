@@ -2,18 +2,22 @@ package lab2_hw;
 
 public class NumberGenerator {
 	
-	public static int[] generateWinningNumbers(int from, int to, int count){
-		double random = Math.random();
-		int[] num = new int[100];
-		for(int i = 0; i < count; i++){
-			num[i] = count+(from-to)*(int)random;
-			for(int j = 0; num[j]!=0; j++){
-				if(num[j] == num[i]){
-					i--;
-					break;
-				}
+	public int[] generateWinningNumbers(int from, int to, int count){
+
+		int[] num = new int[to];
+		int[] num_list = new int[count];
+		for(int i = 0; i < count;){
+			double random = Math.random();
+			int index_now = (int)(from+(to-from)*random);
+			if(num[index_now] == 0){
+				num[index_now] = 1;
+				i++;
 			}
 		}
-		return num;
+		int list_n = 0;
+		for(int i = from; i < to; i++){
+			if(num[i] == 1)num_list[list_n++] = i+1;
+		}
+		return num_list;
 	}
 }

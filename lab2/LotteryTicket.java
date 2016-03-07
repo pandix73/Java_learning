@@ -8,12 +8,17 @@ public class LotteryTicket {
 	}
 	
 	public void raffle(int winningNumbers[]){
+		int match = 0;
+		
 		for(int i : pickedNumbers){
 			for(int j : winningNumbers){
 				if(i == j){
-					System.out.print(i);
+					match++;
 				}
 			}
 		}
+		
+		if(match == winningNumbers.length)System.out.println("You are millionare now!");
+		else System.out.println("match " + match + " numbers orz...");
 	}
 }
